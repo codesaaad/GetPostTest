@@ -4,6 +4,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+            git url: 'https://github.com/codesaaad/GetPostTest.git',
+                                credentialsId: 'github-pat'
                 checkout scm
             }
         }
