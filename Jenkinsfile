@@ -4,27 +4,26 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                    git branch: 'main', url: 'https://github.com/codesaaad/GetPostTest.git'
-                    checkout scm
+                git branch: 'main', url: 'https://github.com/codesaaad/GetPostTest.git'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                sh "mvn clean install -DskipTests"
+                bat "mvn clean install -DskipTests"
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh "mvn test"
+                bat "mvn test"
             }
         }
     }
 
     post {
         always {
-            junit 'target/surefire-reports/*.xml'
+            junit testResults: 'target/surefire-reports/*.xml', allowEmptyResults: true
         }
     }
 }
