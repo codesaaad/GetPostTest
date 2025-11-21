@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven_Latest_3.9.11'  // Maven name from jenkins
+    }
+
     stages {
         stage('Checkout') {
             steps {
