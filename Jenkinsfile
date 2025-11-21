@@ -3,6 +3,7 @@ pipeline {
 
     tools {
         maven 'Maven_Latest_3.9.11'  // Maven name from jenkins
+        jdk 'JDK_File_21'           //jdk name from jenkins
     }
 
     stages {
